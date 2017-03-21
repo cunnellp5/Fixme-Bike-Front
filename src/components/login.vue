@@ -47,14 +47,10 @@ export default {
   },
   methods: {
     logMeIn() {
-      console.log("fuck");
-      console.log("hi");
-      console.log(this.loginData);
         this.isLogged = true
         this.$http.post('http://localhost:3000/auth/login', this.loginData)
         .then(result => {
-          console.log(this.login);
-          console.log(result);
+          console.log(result.data.message);
         }, error => {
           console.log(error);
         });

@@ -10,6 +10,8 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 // Vue.$http.options.root = 'http://localhost:3000/user';
+Vue.http.options.xhr = {withCredentials: true};
+
 const router = new VueRouter({
   routes,
   mode: 'history'
