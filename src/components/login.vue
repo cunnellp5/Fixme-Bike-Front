@@ -10,47 +10,58 @@
             <input type="text"
                    id="bikeTube"
                    class="form-control"
-                   v-model.lazy="login.email">
+                   required
+                   v-model.lazy="loginData.email">
           </div>
           <div class="form-group">
             <label for="location">Password</label>
             <input type="text"
                    id="location"
                    class="form-control"
-                   v-model.lazy="login.password">
+                   required
+                   v-model.lazy="loginData.password">
           </div>
 
         </div>
       </div>
       <button
           class="btn btn-primary"
-          @click.prevent="submitted">
-          Submit
+          @click.prevent="logMeIn">
+          Login
       </button>
     </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
-  name: 'login',
-  data: function () {
+
+  data() {
     return {
-      login: []
+      loginData: {
+        email: '',
+        password: ''
+      },
+      isLogged: false
     }
   },
   methods: {
-    login: function () {
-      axios.post('/login', { firstName: '', email: '' })
-      .then((response) => {
-        console.log("logged in");
-      }, (err) => {
-        console.log(err)
-      })
+    logMeIn() {
+      console.log("fuck");
+      console.log("hi");
+      console.log(this.loginData);
+        this.isLogged = true
+        this.$http.post('http://localhost:3000/auth/login', this.loginData)
+        .then(result => {
+          console.log(this.login);
+          console.log(result);
+        }, error => {
+          console.log(error);
+        });
+
+      }
     }
   }
-}
 </script>
 
 <style lang="css">
