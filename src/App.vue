@@ -2,7 +2,7 @@
   <div class="container" id="app">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1>Fixie-bike</h1>
+        <h1>Fixme-bike</h1>
         <hr>
         <app-header></app-header>
         <transition name="slide" mode="out-in">
@@ -23,6 +23,9 @@
 </script>
 
 <style>
+  h1, h2, h3, h4 {
+    font-family: 'Permanent Marker', cursive;
+  }
   .slide-leave-active {
     transition: opacity 0.5s ease;
     opacity: 0;

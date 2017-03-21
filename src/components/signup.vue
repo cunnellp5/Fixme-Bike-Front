@@ -81,7 +81,7 @@ export default {
       console.log("hi");
       console.log(this.signUp);
         this.isSubmitted = true
-        this.$http.post('http://localhost:3000/user', this.signUp)
+        this.$http.post('http://localhost:3000/auth/signup', this.signUp)
         .then(response => {
           console.log(this.signUp);
           console.log(response);
@@ -94,4 +94,5 @@ export default {
 </script>
 
 <style lang="css">
+
 </style>

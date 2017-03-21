@@ -1,9 +1,8 @@
 <template lang="html">
   <div>
-    <h3>Open an issue request:</h3>
-    <hr>
     <div>
       <form>
+        <hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
             <h1>File a help request</h1>
@@ -43,9 +42,9 @@
           </div>
         </div>
         <button
-            class="btn btn-primary"
+            class="btn btn-danger"
             @click.prevent="submitted">
-            Submit
+            HELP!
         </button>
       </form>
       <hr>
@@ -83,7 +82,6 @@
     },
     methods: {
       submitted() {
-
         this.issueData.issuer = this.$route.params.id
         this.isSubmitted = true
         this.issueData.isActive = true

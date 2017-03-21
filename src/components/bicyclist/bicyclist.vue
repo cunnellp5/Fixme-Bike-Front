@@ -3,13 +3,13 @@
     <h2>Bicyclist page </h2>
     <hr>
     <p>Loaded ID: {{ id }}</p>
-    <button @click="navigateToHome" class="btn btn-xs btn-primary">Home</button>
+    <!-- <button @click="navigateToHome" class="btn btn-xs btn-primary">Home</button> -->
     <!-- <button @click="helpRequest" class="btn btn-danger">Help</button> -->
+
     <router-link
       tag="button"
       :to="{ name: 'issue'}"
-      class="btn btn-xs btn-danger">Send for help</router-link>
-    <hr>
+      class="btn btn-xs btn-success">Make a help form</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -18,13 +18,13 @@
   export default {
     data() {
       return {
-        id: this.$route.params.id
+        id: localStorage.id
       }
     },
     methods: {
-      navigateToHome() {
-        this.$router.push({ name: 'home'});
-      }
+      // navigateToHome() {
+      //   this.$router.push({ name: 'home'});
+      // }
     }
   }
 

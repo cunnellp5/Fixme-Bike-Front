@@ -4,13 +4,31 @@ import VueRouter from 'vue-router';
 import axios from 'axios';
 import App from './App.vue'
 import { routes } from './routes';
+import VueCookie from 'vue-cookie'
 
+Vue.use(VueCookie)
 Vue.use(axios);
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
 // Vue.$http.options.root = 'http://localhost:3000/user';
-Vue.http.options.xhr = {withCredentials: true};
+
+Vue.http.options = {
+    method: 'post',
+    params: {},
+    data: '',
+    xhr: true,
+    jsonp: 'callback',
+    beforeSend: null,
+    crossOrigin: true,
+    emulateHTTP: false,
+    emulateJSON: false
+  };
+
+// Vue.http.headers.common ['Access-Control-Allow-Origin'] = 'http://localhost:3000';
+// Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+
+
 
 const router = new VueRouter({
   routes,

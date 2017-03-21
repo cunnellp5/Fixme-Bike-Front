@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import VueRouter from '../main'
 export default {
 
   data() {
@@ -50,6 +51,10 @@ export default {
         this.isLogged = true
         this.$http.post('http://localhost:3000/auth/login', this.loginData)
         .then(result => {
+          localStorage.setItem('id', result.data.message)
+          console.log(localStorage);
+          // this.$cookie.set(this.loginData.email, result.data.message, 1)
+          this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
           console.log(result.data.message);
         }, error => {
           console.log(error);
@@ -61,4 +66,5 @@ export default {
 </script>
 
 <style lang="css">
+
 </style>
