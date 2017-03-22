@@ -25,7 +25,6 @@
 
 <style media="screen">
   #homeimg {
-    border-radius: 50%;
     height: 100%;
     width: 100%;
   }

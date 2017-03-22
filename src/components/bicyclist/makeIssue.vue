@@ -21,24 +21,24 @@
                      class="form-control"
                      v-model.lazy="issueData.biketube">
             </div>
+
             <div class="form-group">
-              <label for="cash">Got Cash?</label>
-              <br>
-              <div>
+              <label class="checkbox" for="cash">Got Cash?</label>
+                <div>
                   <input
                         type="checkbox"
                         v-model="issueData.cash">Yes
                 </div>
             </div>
             <div class="form-group">
-              <label for="bikechain">Broke Chain?</label>
-              <br>
-              <div>
+              <label class="checkbox" for="bikechain">Broke Chain?</label>
+                <div>
                   <input
                         type="checkbox"
                         v-model="issueData.bikechain">Yes
                 </div>
             </div>
+
           </div>
         </div>
         <button
@@ -98,3 +98,8 @@
     }
   }
 </script>
+
+
+<style>
+
+</style>

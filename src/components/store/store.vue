@@ -2,13 +2,14 @@
   <div>
     <h2>Store page</h2>
     <hr>
-    <p>Loaded ID: {{ id }}</p>
-    <button @click="navigateToHome" class="btn btn-xs btn-primary">Home</button>
+    <img id="stores" src="http://cdn.trendhunterstatic.com/thumbs/pave-bicycle-store.jpeg" alt="store">
+    <br>
+    <br>
     <!-- <button @click="viewIssues" class="btn btn-warning">View Issues</button> -->
     <router-link
       tag="button"
       :to="{ name: 'viewissue', params: { id: $route.params.id }}"
-      class="btn btn-xs btn-warning">View helps</router-link>
+      class="btn btn-md btn-warning">View helps</router-link>
       <hr>
       <router-view></router-view>
   </div>
@@ -27,5 +28,10 @@
       }
     }
   }
-
 </script>
+<style>
+  #stores {
+    height: 100%;
+    width: 100%;
+  }
+</style>

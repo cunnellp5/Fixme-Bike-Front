@@ -80,6 +80,5 @@
 <style>
 #bikeimg {
   width: 80%;
-  border-radius: 50%;
 }
 </style>

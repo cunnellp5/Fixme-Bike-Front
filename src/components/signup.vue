@@ -10,6 +10,7 @@
             <input type="email"
                    id="email"
                    class="form-control"
+                   placeholder="john@doe.com"
                    v-model.lazy="signUp.email">
           </div>
           <div class="form-group">
@@ -24,6 +25,7 @@
             <input type="text"
                    id="firstName"
                    class="form-control"
+                   placeholder="John"
                    v-model.lazy="signUp.firstName">
           </div>
           <div class="form-group">
@@ -31,6 +33,7 @@
             <input type="text"
                    id="lastName"
                    class="form-control"
+                   placeholder="Doe"
                    v-model.lazy="signUp.lastName">
           </div>
           <div class="form-group">
@@ -38,6 +41,7 @@
             <input type="phone"
                    id="phone"
                    class="form-control"
+                   placeholder="xxx-xxx-xxxx"
                    v-model.lazy="signUp.phone">
           </div>
           <div class="form-group">
@@ -45,6 +49,7 @@
             <input type="text"
                    id="imgage"
                    class="form-control"
+                   placeholder="optional"
                    v-model="signUp.image">
           </div>
           <div class="form-group">
@@ -60,7 +65,7 @@
         </div>
       </div>
       <button
-          class="btn btn-success"
+          class="btn btn-success btn-lg"
           @click.prevent="signedUp">
           Submit
       </button>
@@ -110,5 +115,8 @@ export default {
 </script>
 
 <style lang="css">
-
+  .radio {
+    display: inline;
+    margin-left: 1em;
+  }
 </style>
