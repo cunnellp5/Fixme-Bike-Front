@@ -41,6 +41,13 @@
                    v-model.lazy="signUp.phone">
           </div>
           <div class="form-group">
+            <label for="image">image</label>
+            <input type="img"
+                   id="img"
+                   class="form-control"
+                   v-model="signUp.image">
+          </div>
+          <div class="form-group">
             <label for="type">Who are you?</label>
             <div class="radio">
               <label><input v-model.lazy="signUp.type" type="radio" name="optradio" value="1">Bicyclist</label>
@@ -71,20 +78,28 @@ export default {
         firstName: '',
         lastName: '',
         phone: '',
-        type: ''
+        type: '',
+        image: ''
       },
       isSubmitted: false
     }
   },
   methods: {
     signedUp() {
-      console.log("hi");
-      console.log(this.signUp);
         this.isSubmitted = true
         this.$http.post('http://localhost:3000/auth/signup', this.signUp)
         .then(response => {
-          console.log(this.signUp);
+          // localStorage.setItem('id', result.data.message)
+          // console.log(response.data.id);
+          // console.log(this.signUp.type);
+          var store = this.signUp.type
+          if (store == 2) {
+            this.$router.replace({ name: 'store', params: { id: response.data.id }})
+          } else if (store == 1) {
+            this.$router.replace({ name: 'bicyclist', params: { id: response.data.id }})
+          }
           console.log(response);
+
         }, error => {
           console.log(error);
         });

@@ -5,7 +5,7 @@
         <hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <h1>File a help request</h1>
+            <h3>File a help request</h3>
             <hr>
             <div class="form-group">
               <label for="location">Location (cross st.)</label>

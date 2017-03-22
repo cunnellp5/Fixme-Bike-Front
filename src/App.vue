@@ -2,8 +2,8 @@
   <div class="container" id="app">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1>Fixme-bike</h1>
-        <hr>
+        <h1 class="text-center top">Fixme-bike</h1>
+        <!-- <hr> -->
         <app-header></app-header>
         <transition name="slide" mode="out-in">
           <router-view></router-view>
@@ -23,6 +23,10 @@
 </script>
 
 <style>
+ .top {
+   border-bottom: 5px solid black;
+   font-size: 5em;
+ }
   h1, h2, h3, h4 {
     font-family: 'Permanent Marker', cursive;
   }

@@ -13,7 +13,7 @@ export const routes = [
   { path: '/bicyclist/:id', component: bicyclist, name: 'bicyclist', children: [
     { path: '/bicyclist/:id/issue', component: makeissue, name: 'issue' }
   ] },
-  { path: '/store/:id', component: store, children: [
+  { path: '/store/:id', component: store, name: 'store', children: [
     { path: '/store/:id/view', component: viewissue, name: 'viewissue' }
   ] },
   { path: '*', redirect: '/'}
