@@ -40,5 +40,7 @@ mounted: function () {
 </script>
 
 <style>
-
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #404040;
+}
 </style>

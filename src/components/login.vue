@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
             <label for="location">Password</label>
-            <input type="text"
+            <input type="password"
                    id="location"
                    class="form-control"
                    required
@@ -49,28 +49,33 @@ export default {
   methods: {
     logMeIn() {
         this.isLogged = true
-        this.$http.post('http://localhost:3000/auth/login', this.loginData)
+        this.$http.post('http://localhost:3000/token', this.loginData)
         .then(result => {
-          localStorage.setItem('id', result.data.message)
-
-          if (result.data.type == 1) {
-            this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
-          } else {
-            this.$router.replace({ name: 'store', params: { id: localStorage.id }})
+          localStorage.setItem('id', result.data.token)
+          console.log(result.data);
+          // localStorage.token = result.data.token;
+          const payload = localStorage.getItem('id').split('.')[1].replace('-', '+').replace('_', '/');
+          const user = JSON.parse(atob(payload))
+          console.log(user.user);
+          if (user.user.type === 1) {
+            this.$router.replace({ name: 'bicyclist', params: { id: user.user.id }})
           }
-          console.log(result.data.type);
+
+          /// uncomment this for REDIRECTS ********
+          // if (result.data.type == 1) {
+          //   this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
+          // } else {
+          //   this.$router.replace({ name: 'store', params: { id: localStorage.id }})
+          // }
           // console.log(localStorage);
-          // this.$cookie.set(this.loginData.email, result.data.message, 1)
-          console.log(result.data.message);
+          // this.$cookie.set(this.loginData.email, result.data.token, 1)
         }, error => {
           console.log(error);
         });
-
       }
     }
   }
 </script>
 
 <style lang="css">
-
 </style>

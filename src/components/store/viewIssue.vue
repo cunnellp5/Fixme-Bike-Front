@@ -18,7 +18,7 @@
               <li class="list-group-item"><p>Biketube size</p> - {{ i.biketube }} </li>
               <li class="list-group-item"><p>Broken bikechain</p> - {{ i.bikechain }} </li>
               <li class="list-group-item"><p>Location</p> - {{ i.location }} </li>
-              <li class="list-group-item"><p>Msg</p> - {{ i.message }} </li>
+              <!-- <li class="list-group-item"><p>Msg</p> - {{ i.message }} </li> -->
             </ul>
           </div>
         </div>
@@ -44,7 +44,7 @@
     },
     methods: {
       fetchData(){
-        this.$http.get('http://localhost:3000/issues')
+        this.$http.get('http://localhost:3000/issues/all')
           .then(response => {
             return response.json();
           })
@@ -67,3 +67,9 @@
     }
   }
 </script>
+
+<style media="screen">
+.list-group-item {
+  
+}
+</style>

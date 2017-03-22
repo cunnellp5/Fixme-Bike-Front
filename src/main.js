@@ -25,6 +25,13 @@ Vue.http.options = {
     emulateJSON: false
   };
 
+Vue.http.interceptors.push((request, next) => {
+  console.log("adding auth header");
+  request.headers.set('Authorization', 'Bearer ' + localStorage.token)
+  request.headers.set('Accept', 'application/json')
+  next()
+})
+
 // Vue.http.headers.common ['Access-Control-Allow-Origin'] = 'http://localhost:3000';
 // Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 

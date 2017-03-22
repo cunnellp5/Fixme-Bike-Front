@@ -44,14 +44,14 @@
                    placeholder="xxx-xxx-xxxx"
                    v-model.lazy="signUp.phone">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="image">image</label>
             <input type="text"
                    id="imgage"
                    class="form-control"
                    placeholder="optional"
                    v-model="signUp.image">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="type">Who are you?</label>
             <div class="radio">

@@ -8,10 +8,11 @@
             <h3>File a help request</h3>
             <hr>
             <div class="form-group">
-              <label for="location">Location (cross st.)</label>
+              <label for="location">Location</label>
               <input type="text"
                      id="location"
                      class="form-control"
+                     placeholder="Cross Streets will do"
                      v-model.lazy="issueData.location">
             </div>
             <div class="form-group">
@@ -19,6 +20,7 @@
               <input type="text"
                      id="bikeTube"
                      class="form-control"
+                     placeholder="28 x 38"
                      v-model.lazy="issueData.biketube">
             </div>
 
