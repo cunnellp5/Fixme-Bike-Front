@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div>
-      <form>
+      <form v-if="isSubmitted">
         <hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -49,6 +49,12 @@
             HELP!
         </button>
       </form>
+
+      <div v-else>
+        <h1 class="text-center">Pending request...</h1>
+        <div class="loader">
+        </div>
+      </div>
       <hr>
       <!-- <div class="row" v-if="isSubmitted">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -79,13 +85,13 @@
           cash: false,
           bikechain: false
         },
-        isSubmitted: false
+        isSubmitted: true
       }
     },
     methods: {
       submitted() {
         this.issueData.issuer = this.$route.params.id
-        this.isSubmitted = true
+        this.isSubmitted = false
         this.issueData.isActive = true
         if (this.issueData.biketube != '' && this.issueData.isActive != '' && this.issueData.location != '') {
           this.$http.post('http://localhost:3000/issues', this.issueData)
@@ -103,5 +109,18 @@
 
 
 <style>
+.loader {
+    margin: 0 auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 </style>

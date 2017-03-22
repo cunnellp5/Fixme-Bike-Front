@@ -65,7 +65,6 @@
         axios.get(`http://localhost:3000/user/bicyclist/${this.$route.params.id}`).then((response) => {
           this.bicyclist = response.data["0"]
           // this.w = this.bicyclist.image
-
         }, (err) => {
           console.log(err)
         })
