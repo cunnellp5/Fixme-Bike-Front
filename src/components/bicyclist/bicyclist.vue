@@ -1,10 +1,15 @@
 <template lang="html">
   <div>
+    <div class="text-center">
+
     <h2>Bicyclist page </h2>
     <hr>
+    <img id="bikeimg" src="https://s-media-cache-ak0.pinimg.com/originals/d1/00/13/d10013ab5dbdb1b2954201bf41c81ad0.jpg" alt="bicycle">
+    <br>
+    <br>
           <!-- <img id="profilepic" v-bind:src="w" alt="Image"> -->
-    <p>{{this.bicyclist}}</p>
-    <p>{{bicyclist}}</p>
+    <!-- <p>{{this.bicyclist}}</p>
+    <p>{{bicyclist}}</p> -->
     <!-- <p>Loaded ID: {{ id }}</p> -->
     <!-- <button @click="navigateToHome" class="btn btn-xs btn-primary">Home</button> -->
     <!-- <button @click="helpRequest" class="btn btn-danger">Help</button> -->
@@ -12,7 +17,8 @@
     <router-link
       tag="button"
       :to="{ name: 'issue'}"
-      class="btn btn-md btn-success">Make a help form</router-link>
+      class="btn btn-md btn-success">help form</router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -59,7 +65,7 @@
         axios.get(`http://localhost:3000/user/bicyclist/${this.$route.params.id}`).then((response) => {
           this.bicyclist = response.data["0"]
           // this.w = this.bicyclist.image
-          console.log(this.bicyclist);
+
         }, (err) => {
           console.log(err)
         })
@@ -72,4 +78,8 @@
 </script>
 
 <style>
+#bikeimg {
+  width: 80%;
+  border-radius: 50%;
+}
 </style>

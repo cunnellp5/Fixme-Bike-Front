@@ -16,7 +16,7 @@
         <h4>Stores</h4>
         <ul>
           <li>View requests from bicyclists.</li>
-          <li>Save them and earn money.</li>
+          <li>Rescue them and earn money.</li>
         </ul>
       </div>
     </div>
@@ -25,6 +25,7 @@
 
 <style media="screen">
   #homeimg {
+    border-radius: 50%;
     height: 100%;
     width: 100%;
   }

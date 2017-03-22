@@ -52,9 +52,15 @@ export default {
         this.$http.post('http://localhost:3000/auth/login', this.loginData)
         .then(result => {
           localStorage.setItem('id', result.data.message)
+
+          if (result.data.type == 1) {
+            this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
+          } else {
+            this.$router.replace({ name: 'store', params: { id: localStorage.id }})
+          }
+          console.log(result.data.type);
           // console.log(localStorage);
           // this.$cookie.set(this.loginData.email, result.data.message, 1)
-          this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
           console.log(result.data.message);
         }, error => {
           console.log(error);

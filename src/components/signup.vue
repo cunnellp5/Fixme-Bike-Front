@@ -42,8 +42,8 @@
           </div>
           <div class="form-group">
             <label for="image">image</label>
-            <input type="img"
-                   id="img"
+            <input type="text"
+                   id="imgage"
                    class="form-control"
                    v-model="signUp.image">
           </div>
@@ -89,6 +89,7 @@ export default {
         this.isSubmitted = true
         this.$http.post('http://localhost:3000/auth/signup', this.signUp)
         .then(response => {
+          console.log(this.signUp);
           // localStorage.setItem('id', result.data.message)
           // console.log(response.data.id);
           // console.log(this.signUp.type);

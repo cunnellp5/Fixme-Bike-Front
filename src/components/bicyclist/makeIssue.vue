@@ -88,7 +88,7 @@
         if (this.issueData.biketube != '' && this.issueData.isActive != '' && this.issueData.location != '') {
           this.$http.post('http://localhost:3000/issues', this.issueData)
           .then(response => {
-            console.log(this.issueData);
+            console.log(this.issueData.location);
             console.log(response);
           }, error => {
             console.log(error);
