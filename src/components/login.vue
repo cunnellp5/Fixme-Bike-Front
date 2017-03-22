@@ -59,6 +59,8 @@ export default {
           console.log(user.user);
           if (user.user.type === 1) {
             this.$router.replace({ name: 'bicyclist', params: { id: user.user.id }})
+          } else if (user.user.type === 2) {
+              this.$router.replace({ name: 'store', params: { id: user.user.id }})
           }
 
           /// uncomment this for REDIRECTS ********

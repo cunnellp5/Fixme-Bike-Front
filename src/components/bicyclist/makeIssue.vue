@@ -23,7 +23,6 @@
                      placeholder="28 x 38"
                      v-model.lazy="issueData.biketube">
             </div>
-
             <div class="form-group">
               <label class="checkbox" for="cash">Got Cash?</label>
                 <div>
@@ -40,7 +39,6 @@
                         v-model="issueData.bikechain">Yes
                 </div>
             </div>
-
           </div>
         </div>
         <button
@@ -49,31 +47,18 @@
             HELP!
         </button>
       </form>
-
-      <div v-else>
-        <h1 class="text-center">Pending request...</h1>
-        <div class="loader">
-        </div>
-      </div>
-      <hr>
-      <!-- <div class="row" v-if="isSubmitted">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4>Help Me!</h4>
-            </div>
-            <div class="panel-body">
-              <p>Phone: {{ issueData.location }}</p>
-              <p>Biketube size: {{ issueData.biketube }}</p>
-            </div>
+        <div v-else>
+          <h1 class="text-center">Pending request...</h1>
+          <div class="loader">
           </div>
         </div>
-      </div> -->
+      <hr>
     </div>
   </div>
 </template>
 
 <script>
+import viewIssue from '../store/viewIssue.vue'
   export default {
     data() {
       return {
@@ -107,7 +92,6 @@
   }
 </script>
 
-
 <style>
 .loader {
     margin: 0 auto;
@@ -118,7 +102,6 @@
     height: 100px;
     animation: spin 2s linear infinite;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

@@ -11,8 +11,9 @@
           </div>
           <div class="panel-body">
             <ul class="list-group" v-for="i in issues">
-              <button @click="del" class="btn btn-danger pull-right" type="button" name="button"> Delete Request </button>
-              <h5> {{ i.firstName }}</h5>
+              <button @click="del" class="btn btn-danger pull-right" type="button" name="button" disabled> Delete Request </button>
+              <button @click="enRoute" class="btn btn-info pull-right" type="button" name="button"> Persue </button>
+              <h4> {{ i.firstName }}</h4>
               <p>#{{ i.phone }}</p>
               <li class="list-group-item"><p>Got cash</p> - {{ i.cash }} </li>
               <li class="list-group-item"><p>Biketube size</p> - {{ i.biketube }} </li>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import makeIssue from '../bicyclist/makeIssue.vue'
   export default {
     data() {
       return {
@@ -63,6 +65,9 @@
             return response.json();
           })
           .then(data => console.log(data));
+      },
+      enRoute(){
+        console.log("VIEW MEEEEEE");
       }
     }
   }
@@ -70,6 +75,6 @@
 
 <style media="screen">
 .list-group-item {
-  
+
 }
 </style>
