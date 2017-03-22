@@ -7,18 +7,18 @@
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4>HELP</h4>
+            <h3>HELP</h3>
           </div>
           <div class="panel-body">
             <ul class="list-group" v-for="i in issues">
               <button @click="del" class="btn btn-danger pull-right" type="button" name="button" disabled> Delete Request </button>
               <button @click="enRoute" class="btn btn-info pull-right" type="button" name="button"> Persue </button>
-              <h4> {{ i.firstName }}</h4>
-              <p>#{{ i.phone }}</p>
-              <li class="list-group-item"><p>Got cash</p> - {{ i.cash }} </li>
-              <li class="list-group-item"><p>Biketube size</p> - {{ i.biketube }} </li>
-              <li class="list-group-item"><p>Broken bikechain</p> - {{ i.bikechain }} </li>
-              <li class="list-group-item"><p>Location</p> - {{ i.location }} </li>
+              <h3> {{ i.firstName }}</h3>
+              <p class="digits"># {{ i.phone }}</p>
+              <li class="list-group-item"><p class="underline">Got cash</p> - {{ i.cash }} </li>
+              <li class="list-group-item"><p class="underline">Biketube size</p> - {{ i.biketube }} </li>
+              <li class="list-group-item"><p class="underline">Broken bikechain</p> - {{ i.bikechain }} </li>
+              <li class="list-group-item"><p class="underline">Location</p> - {{ i.location }} </li>
               <!-- <li class="list-group-item"><p>Msg</p> - {{ i.message }} </li> -->
             </ul>
           </div>
@@ -74,7 +74,15 @@ import makeIssue from '../bicyclist/makeIssue.vue'
 </script>
 
 <style media="screen">
-.list-group-item {
-
-}
+  .underline{
+    text-decoration: underline;
+    color: grey;
+    display: inline;
+  }
+  .list-group-item {
+    font-size: 1.5em;
+  }
+  .digits{
+    font-size: 1.2em;
+  }
 </style>
