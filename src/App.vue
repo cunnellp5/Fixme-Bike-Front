@@ -25,7 +25,8 @@
 <style>
  .top {
    border-bottom: 5px solid black;
-   font-size: 5em;
+   font-size: 5.8em;
+   background-color: white;
  }
   h1, h2, h3, h4 {
     font-family: 'Permanent Marker', cursive;

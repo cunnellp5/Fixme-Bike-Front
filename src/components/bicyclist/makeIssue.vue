@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div>
-      <form v-if="isSubmitted">
+      <form v-if="isSubmitted && successfilled">
         <hr>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -42,15 +42,22 @@
           </div>
         </div>
         <button
-            class="btn btn-danger"
+            class="btn btn-danger nav nav-pills nav-justified"
             @click.prevent="submitted">
             HELP!
         </button>
       </form>
-        <div v-else>
-          <h1 class="text-center">Pending request...</h1>
-          <div class="loader">
+
+          <div v-else-if="isSubmitted === false && successfilled === true">
+            <h1 class="text-center">Pending request...</h1>
+            <div class="loader" @click.prevent="toggler">
+            </div>
           </div>
+
+          <div v-else-if="isSubmitted === false && successfilled === false">
+            <h1 class="text-center greenMe" @click.prevent="reset">Help is on the way!</h1>
+          </div>
+
         </div>
       <hr>
     </div>
@@ -58,6 +65,7 @@
 </template>
 
 <script>
+import bicyclist from './bicyclist.vue';
 import viewIssue from '../store/viewIssue.vue'
   export default {
     data() {
@@ -70,29 +78,43 @@ import viewIssue from '../store/viewIssue.vue'
           cash: false,
           bikechain: false
         },
-        isSubmitted: true
+        isSubmitted: true,
+        successfilled:true,
       }
     },
     methods: {
       submitted() {
-        this.issueData.issuer = this.$route.params.id
+        this.successfilled = true
         this.isSubmitted = false
         this.issueData.isActive = true
+        this.issueData.issuer = this.$route.params.id
         if (this.issueData.biketube != '' && this.issueData.isActive != '' && this.issueData.location != '') {
           this.$http.post('http://localhost:3000/issues', this.issueData)
           .then(response => {
             console.log(this.issueData.location);
             console.log(response);
           }, error => {
+            this.issueData = ''
             console.log(error);
           });
         }
+      },
+      toggler(){
+        this.successfilled = false;
+        this.isSubmitted = false;
+      },
+      reset(){
+        this.isSubmitted = true;
+        this.successfilled = true;
       }
     }
   }
 </script>
 
 <style>
+.greenMe {
+  color: green;
+}
 .loader {
     margin: 0 auto;
     border: 16px solid #f3f3f3; /* Light grey */

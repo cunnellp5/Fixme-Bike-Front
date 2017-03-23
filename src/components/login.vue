@@ -1,5 +1,13 @@
 <template lang="html">
   <div class="col-xs-12 col-sm-12 col-md-12">
+    <ul class="nav nav-pills nav-justified">
+      <!-- <router-link to='/bicyclist/1' tag="li" active-class="active"><a>Bicyclist</a></router-link> -->
+      <!-- <router-link :to="{ name: 'bicyclist', params: { id: 11 }}">bikerbreube</router-link> -->
+      <!-- <router-link to='/store/2' tag="li" active-class="active"><a>Store</a></router-link> -->
+      <router-link to='/' tag="li" active-class="active" exact><a>Home</a></router-link>
+      <router-link to='/login' tag="li" active-class="active" exact><a>Login</a></router-link>
+      <router-link to='/signup' tag="li" active-class="active" exact><a>Sign up</a></router-link>
+    </ul>
     <form>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -21,11 +29,10 @@
                    required
                    v-model.lazy="loginData.password">
           </div>
-
         </div>
       </div>
       <button
-          class="btn btn-primary"
+          class="btn btn-success btn-lg"
           @click.prevent="logMeIn">
           Login
       </button>

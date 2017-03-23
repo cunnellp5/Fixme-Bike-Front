@@ -1,17 +1,17 @@
 <template lang="html">
   <div>
     <h3>view pending issues</h3>
-    <button class="btn btn-primary" @click="fetchData">grab data</button>
+    <button class="btn btn-primary" @click="fetchData">Refresh data</button>
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3>HELP</h3>
+            <h3>Available helps</h3>
           </div>
           <div class="panel-body">
             <ul class="list-group" v-for="i in issues">
-              <button @click="del" class="btn btn-danger pull-right" type="button" name="button" disabled> Delete Request </button>
+              <button @click="del" class="btn btn-danger pull-right" type="button" name="button"> Delete Request </button>
               <button @click="enRoute" class="btn btn-info pull-right" type="button" name="button"> Persue </button>
               <h3> {{ i.firstName }}</h3>
               <p class="digits"># {{ i.phone }}</p>
@@ -20,6 +20,7 @@
               <li class="list-group-item"><p class="underline">Broken bikechain</p> - {{ i.bikechain }} </li>
               <li class="list-group-item"><p class="underline">Location</p> - {{ i.location }} </li>
               <!-- <li class="list-group-item"><p>Msg</p> - {{ i.message }} </li> -->
+              <hr>
             </ul>
           </div>
         </div>
@@ -69,6 +70,9 @@ import makeIssue from '../bicyclist/makeIssue.vue'
       enRoute(){
         console.log("VIEW MEEEEEE");
       }
+    },
+    mounted: function () {
+      this.fetchData()
     }
   }
 </script>
