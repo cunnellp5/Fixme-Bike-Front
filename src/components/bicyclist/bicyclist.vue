@@ -31,7 +31,7 @@
     },
     methods: {
       loadBicyclist: function () {
-        axios.get(`http://localhost:3000/user/bicyclist/${this.$route.params.id}`).then((response) => {
+        axios.get(`https://fixmebike.herokuapp.com/user/bicyclist/${this.$route.params.id}`).then((response) => {
           this.bicyclist = response.data
           console.log(this.bicyclist.isActive);
         }, (err) => {

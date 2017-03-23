@@ -32,7 +32,10 @@ Vue.http.interceptors.push((request, next) => {
   next()
 })
 
-// Vue.http.headers.common ['Access-Control-Allow-Origin'] = 'http://localhost:3000';
+
+
+// const API_URL = window.location.host.indexOf('localhost') > -1 ? 'http://localhost:3000/' : `https://git.heroku.com/fixmebike.git`;
+Vue.http.headers.common ['Access-Control-Allow-Origin'] = 'https://fixmebike.herokuapp.com/';
 // Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 
 

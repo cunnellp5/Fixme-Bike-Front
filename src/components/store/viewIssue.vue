@@ -47,7 +47,7 @@ import makeIssue from '../bicyclist/makeIssue.vue'
     },
     methods: {
       fetchData(){
-        this.$http.get('http://localhost:3000/issues/all')
+        this.$http.get('https://fixmebike.herokuapp.com/issues/all')
           .then(response => {
             return response.json();
           })
@@ -61,7 +61,7 @@ import makeIssue from '../bicyclist/makeIssue.vue'
           });
       },
       del() {
-        this.$http.delete('http://localhost:3000/issues/' + this.issues["0"].issuer)
+        this.$http.delete('https://fixmebike.herokuapp.com/issues/' + this.issues["0"].issuer)
           .then(response => {
             return response.json();
           })

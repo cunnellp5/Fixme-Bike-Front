@@ -9,7 +9,7 @@
     <router-link
       tag="button"
       :to="{ name: 'viewissue', params: { id: $route.params.id }}"
-      class="btn btn-md btn-warning">View helps</router-link>
+      class="btn btn-md btn-warning nav nav-pills nav-justified">View helps</router-link>
       <hr>
       <router-view></router-view>
   </div>
@@ -30,7 +30,7 @@ import axios from 'axios'
         this.$router.push({ name: 'home' });
       },
       loadStores: function(){
-        axios.get(`http://localhost:3000/user/store/${this.$route.params.id}`).then((response) => {
+        axios.get(`https://fixmebike.herokuapp.com/user/store/${this.$route.params.id}`).then((response) => {
           this.store = response.data["0"]
           console.log(response.data["0"].firstName);
         }, (err) => {

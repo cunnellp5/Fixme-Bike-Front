@@ -14,7 +14,7 @@ export default {
   },
   methods: {
   loadBicyclist: function () {
-    axios.get('http://localhost:3000/user').then((response) => {
+    axios.get('https://fixmebike.herokuapp.com/user').then((response) => {
       console.log(localStorage.id);
       this.bicyclist = response.data["0"]
       this.w = this.bicyclist.id

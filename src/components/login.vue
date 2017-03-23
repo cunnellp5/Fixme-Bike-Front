@@ -56,10 +56,11 @@ export default {
   methods: {
     logMeIn() {
         this.isLogged = true
-        this.$http.post('http://localhost:3000/token', this.loginData)
+        this.$http.post('https://fixmebike.herokuapp.com/token', this.loginData)
         .then(result => {
           localStorage.setItem('id', result.data.token)
           console.log(result.data);
+          console.log("work?");
           // localStorage.token = result.data.token;
           const payload = localStorage.getItem('id').split('.')[1].replace('-', '+').replace('_', '/');
           const user = JSON.parse(atob(payload))
@@ -69,15 +70,6 @@ export default {
           } else if (user.user.type === 2) {
               this.$router.replace({ name: 'store', params: { id: user.user.id }})
           }
-
-          /// uncomment this for REDIRECTS ********
-          // if (result.data.type == 1) {
-          //   this.$router.replace({ name: 'bicyclist', params: { id: localStorage.id }})
-          // } else {
-          //   this.$router.replace({ name: 'store', params: { id: localStorage.id }})
-          // }
-          // console.log(localStorage);
-          // this.$cookie.set(this.loginData.email, result.data.token, 1)
         }, error => {
           console.log(error);
         });

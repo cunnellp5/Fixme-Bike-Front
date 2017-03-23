@@ -89,7 +89,7 @@ import viewIssue from '../store/viewIssue.vue'
         this.issueData.isActive = true
         this.issueData.issuer = this.$route.params.id
         if (this.issueData.biketube != '' && this.issueData.isActive != '' && this.issueData.location != '') {
-          this.$http.post('http://localhost:3000/issues', this.issueData)
+          this.$http.post('https://fixmebike.herokuapp.com/issues', this.issueData)
           .then(response => {
             console.log(this.issueData.location);
             console.log(response);
@@ -113,7 +113,7 @@ import viewIssue from '../store/viewIssue.vue'
 
 <style>
 .greenMe {
-  color: green;
+  color: #5cb85c;
 }
 .loader {
     margin: 0 auto;

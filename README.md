@@ -6,7 +6,10 @@ The idea is, when a bicyclist gets a flat tire or a broken chain, typically you 
 someone for a ride back home. How about sending a request to nearby bike stores instead?
 they can then send another bicyclist with the gear needed to repair your bike on the road.
 
-
+#### Future plans:
+- Maps like uber does it.
+- Implement some paypal system.
+- Translate into a mobile first framework, like Quasar.
 
 
 #### Dev Build Setup

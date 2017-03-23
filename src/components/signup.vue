@@ -100,7 +100,7 @@ export default {
   methods: {
     signedUp() {
         this.isSubmitted = true
-        this.$http.post('http://localhost:3000/auth/signup', this.signUp)
+        this.$http.post('https://fixmebike.herokuapp.com/auth/signup', this.signUp)
         .then(response => {
           console.log(this.signUp);
           // localStorage.setItem('id', result.data.message)
